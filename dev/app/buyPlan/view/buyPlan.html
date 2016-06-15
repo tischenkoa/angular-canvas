@@ -1,0 +1,27 @@
+<div class="container-buy-plan">
+	<ul class="buy-plan-list">
+		<li ng-repeat="plan in buyPlanCtrl.plans track by plan.number"
+		    ng-click="buyPlanCtrl.selectPlan(plan)"
+		    ng-class="{'selected': plan == buyPlanCtrl.selectedPlan}">
+			<div class="radio-input"></div>
+			<span class="name-plan" ng-bind="plan.title"></span>
+			<span class="number-plan">#{{plan.number}}</span>
+				<span class="price-plane">
+					<span ng-bind="plan.price | currency:'$':0"></span>
+					<span>per license</span>
+				</span>
+		</li>
+	</ul>
+	<div class="number-of-licenses">
+		<span>Number of licenses:</span>
+		<select ng-options="numberOfLicenses for numberOfLicenses in buyPlanCtrl.options.numberOfLicenses"
+		        ng-model="buyPlanCtrl.selectedNumberOfLicenses" ng-click="buyPlanCtrl.errorSend = ''"></select>
+	</div>
+	<div class="total-price">
+		<span class="total-price-text">total:</span>
+		<span class="total-price-number">{{buyPlanCtrl.getTotalPrice() | currency:'$':0}}</span>
+	</div>
+	<button class="button-buy" ng-click="buyPlanCtrl.sendBuy()">Buy now</button>
+	<div class="info-error" ng-bind="buyPlanCtrl.errorSend"></div>
+	<div ng-hide="!buyPlanCtrl.selectedPlan" class="info-select-plan">Selected plan: # {{buyPlanCtrl.selectedPlan.number}}</div>
+</div>

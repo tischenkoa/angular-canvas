@@ -1,0 +1,29 @@
+{
+  "plans": [
+    {
+      "title": "license plan",
+      "number":"1",
+      "price": "13"
+    },
+    {
+      "title": "license plan",
+      "number":"2",
+      "price": "22"
+    },
+    {
+      "title": "license plan",
+      "number":"3",
+      "price": "34"
+    }
+  ],
+  "options": {
+    "numberOfLicenses": [
+      1,
+      2,
+      3,
+      5,
+      10,
+      20
+    ]
+  }
+}
